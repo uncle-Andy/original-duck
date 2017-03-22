@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回测结果</title>
+    <!--Bootstrap from local-->
+    <script src="/html/content/bootstrap-local/jquery.min.js"></script>
+    <link rel="stylesheet" href="/html/content/bootstrap-local/bootstrap.css">
+    <script src="/html/content/bootstrap-local/bootstrap.js"></script>
+    <!--hightstock-->
+    <script src="/html/content/plugin/highstock/highstock.js"></script>
+    <!--<script src="/html/content/plugin/highstock/highcharts-more.js"></script>-->
+
+    <!--datatables-->
+    <script src="/html/content/plugin/datatables/jquery.dataTables.js"></script>
+    <script src="/html/content/plugin/datatables/dataTables.bootstrap.js"></script>
+    <link rel="stylesheet" href="/html/content/plugin/datatables/dataTables.bootstrap.css">
+    <!--css loader-->
+    <link rel="stylesheet" href="/html/content/plugin/css-loader/loader-double.css">
+    <!--self-->
+    <link rel="stylesheet" href="/html/content/css/navigator.css">
+    <link rel="stylesheet" href="/html/content/css/analysis_result.css">
+</head>
+<body>
+<div class="loader loader-double is-active" id="loader"></div>
+<div id="content">
+    <div class="row">
+        <div id="left" class="col-sm-3">
+            <div id="params" class="panel panel-default">
+                <div class="panel-heading">回测基本参数</div>
+                <div class="panel-body">
+                    <div class="param-item">
+                        <strong>起始资金</strong>
+                        <span style="float: right;" id="param-capital">1000万</span>
+                    </div>
+                    <div class="param-item">
+                        <strong>开始时间</strong>
+                        <span style="float: right;" id="param-beginDate">2017-03-18</span>
+                    </div>
+                    <div class="param-item">
+                        <strong>结束时间</strong>
+                        <span style="float: right;" id="param-endDate">2017-03-18</span>
+                    </div>
+                    <div class="param-item">
+                        <strong>交易费率</strong>
+                        <span style="float: right;" id="param-taxRate">0.3</span>
+                    </div>
+                    <div class="param-item">
+                        <strong>基准大盘</strong>
+                        <span style="float: right;" id="param-base">上证综指</span>
+                    </div>
+                    <div class="param-item">
+                        <strong>调仓间隔</strong>
+                        <span style="float: right;" id="param-interval">5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right" class="col-sm-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">回测结果与大盘对比图</div>
+                <div class="panel-body">
+                    <div id="compare-chart"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <!--交易细节左侧-->
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel panel-body">
+                    <table id="transaction_table" class="display table">
+                        <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>交易额</th>
+                            <th>交易手数</th>
+                            <th>累积收益额</th>
+                            <th>累积收益率</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--交易细节右侧-->
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table id="transaction_detail_table" class="display table">
+                        <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>买/卖</th>
+                            <th>金额</th>
+                            <th>股票</th>
+                            <th>数量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/html/content/js/navigator.js"></script>
+<script src="/html/content/js/analysis_result.js"></script>
+</html>

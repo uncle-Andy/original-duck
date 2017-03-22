@@ -1,0 +1,52 @@
+body{
+    margin-bottom:100px;
+    min-width: 1100px;
+}
+
+#content{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+#params-1>h2, #params-2>h2, #params-3>h2, #params-4>h2{
+    border-bottom: solid 1px #2A2A2A;
+    color: #2A2A2A;
+    padding-bottom: 10px;
+}
+
+.analysis-input{
+    margin-top:20px;
+    height: 37px;
+}
+.slider-input{
+    margin-top:10px;
+    height: 37px;
+}
+
+.highlight{
+    background-color: #eeeeee;
+}
+#allstock_list, #chosenStocks{
+    cursor: pointer;
+}
+
+.input-title{
+    float: left;
+    width: 20%;
+    line-height: 35px;
+}
+
+.input-value{
+    float: right;
+    width: 80%;
+}
+
+#testBtn{
+    float: right;
+    margin-top:30px;
+    width: 30%;
+}
+
+#beginDate_input, #endDate_input{
+    cursor: pointer;
+}

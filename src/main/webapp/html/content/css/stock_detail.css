@@ -1,0 +1,12 @@
+body{
+    min-width:1100px;
+}
+
+#content{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.basic-info-value{
+    float: right;
+}

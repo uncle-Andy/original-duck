@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <!--Bootstrap from local-->
+    <script src="/html/content/bootstrap-local/jquery.min.js"></script>
+    <link rel="stylesheet" href="/html/content/bootstrap-local/bootstrap.css">
+    <script src="/html/content/bootstrap-local/bootstrap.js"></script>
+
+    <!--datatables-->
+    <script src="/html/content/plugin/datatables/jquery.dataTables.js"></script>
+    <script src="/html/content/plugin/datatables/dataTables.bootstrap.js"></script>
+    <link rel="stylesheet" href="/html/content/plugin/datatables/dataTables.bootstrap.css">
+
+    <!--hightstock-->
+    <script src="/html/content/plugin/highstock/highstock.js"></script>
+    <script src="/html/content/plugin/highstock/highcharts-more.js"></script>
+
+    <!--loader.css-->
+    <link rel="stylesheet" href="/html/content/plugin/loader-css/loaders.css">
+
+    <!--self-->
+    <link rel="stylesheet" href="/html/content/css/navigator.css">
+    <link rel="stylesheet" href="/html/content/css/stock_detail.css">
+</head>
+<body>
+
+<div id="content">
+    <div class="row">
+        <div class="col-xs-3">
+            <!--basic info-->
+            <div class="panel panel-default" style="height: 50%;margin-top:10px;">
+                <div class="panel-heading">基本信息</div>
+                <div class="panel-body">
+                    <div>
+                        <strong>股票名称</strong><span class="basic-info-value" id="stock-name">东风汽车</span>
+                    </div>
+                    <div>
+                        <strong>股票代码</strong><span class="basic-info-value" id="stock-code">sh600006</span>
+                    </div>
+                    <div>
+                        <strong>昨日收盘价</strong><span class="basic-info-value" style="color: #bb1315" id="stock-open-price">7.3</span>
+                    </div>
+                    <div>
+                        <strong>变化率</strong><span class="basic-info-value" style="color: #bb1315" id="stock-changerate">0.82%</span>
+                    </div>
+                    <div>
+                        <strong>总发行量</strong><span class="basic-info-value" id="stock-total-share">0.82%</span>
+                    </div>
+                    <div>
+                        <strong>所属地区</strong><span class="basic-info-value" id="stock-officer-addr">0.22%</span>
+                    </div>
+                </div>
+            </div>
+            <!--dashboard-->
+            <div class="panel panel-default" style="height: 50%">
+                <!--<div class="panel-heading">Panel heading without title</div>-->
+                <div class="panel-body" id="dash-btns">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active"><a href="#k-line" role="tab" data-toggle="tab">k-线图</a></li>
+                        <li role="presentation"><a href="#factor" role="tab" data-toggle="tab">因子走势</a></li>
+                        <li role="presentation"><a href="#judgement" role="tab" data-toggle="tab">股票评估</a></li>
+                        <li role="presentation"><a href="#news" role="tab" data-toggle="tab">相关新闻</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <div class="panel panel-default" style="height: 100%">
+                <div class="panel-heading" style="">详情
+
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <!-- Nav tabs -->
+                        <!--<ul class="nav nav-tabs" role="tablist">-->
+                            <!--<li role="presentation" class="active"><a href="#k-line" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>-->
+                            <!--<li role="presentation"><a href="#factor" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>-->
+                            <!--<li role="presentation"><a href="#judgement" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>-->
+                            <!--<li role="presentation"><a href="#news" aria-controls="messages" role="tab" data-toggle="tab">News</a></li>-->
+                        <!--</ul>-->
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="k-line"><div id="ohlc-chart"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="factor">
+                                <select name="" id="factor-trend-type" class="form-control" style="width: 300px;float: right;">
+                                    <option value="市盈率">市盈率</option>
+                                    <option value="市净率">市净率</option>
+                                    <option value="市销率">市销率</option>
+                                    <option value="市现率">市现率</option>
+                                    <option value="5日换手率">5日换手率</option>
+                                    <option value="10日换手率">10日换手率</option>
+                                </select>
+                                <div id="factor-chart"></div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="judgement">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div id="evaluation-chart"></div>
+                                        <div><strong>购买建议</strong><span id="suggestion" style="float: right;">建议买入</span></div>
+                                        <div><strong>分析</strong><span id="analysis" style="float: right;">分析</span></div>
+                                    </div>
+                                    <div class="col-xs-6"><div id="radar_chart"></div></div>
+                                </div></div>
+                            <div role="tabpanel" class="tab-pane" id="news" style="max-height: 600px;overflow: scroll">
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/html/content/js/navigator.js"></script>
+<script src="/html/content/js/stock_detail.js"></script>
+</html>

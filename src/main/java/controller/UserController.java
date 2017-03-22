@@ -42,7 +42,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(HttpServletRequest request, String username, String password, String addNewUser) {
+    public boolean login(HttpServletRequest request, String username, String password, String addNewUser) {
         UserEntity userEntity = new UserEntity();
 
 
@@ -54,9 +54,9 @@ public class UserController {
             //将用户的ID 写入到 Session中
             request.getSession().setAttribute(Configure.USERID_KEY, id);
             System.out.print("用户ID为" + request.getSession().getAttribute(Configure.USERID_KEY));
-            return "redirect:/html/duck_main.html";
+            return true;
         } else {
-            return "/index.jsp";
+            return false;
         }
     }
 

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回测</title>
+    <!--Bootstrap from local-->
+    <script src="/html/content/bootstrap-local/jquery.min.js"></script>
+    <link rel="stylesheet" href="/html/content/bootstrap-local/bootstrap.css">
+    <script src="/html/content/bootstrap-local/bootstrap.js"></script>
+    <!--flatpickr-->
+    <script src="/html/content/plugin/flatpickr/flatpickr.js"></script>
+    <link rel="stylesheet" href="/html/content/plugin/flatpickr/flatpickr.css">
+    <!--self-->
+    <link rel="stylesheet" href="/html/content/css/navigator.css">
+    <link rel="stylesheet" href="/html/content/css/analysis_input.css">
+</head>
+<body>
+<div id="content" class="row">
+    <div id="left" class="col-xs-8">
+        <div class="">
+            <div class="panel-body">
+                <!--输入框们-->
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="analysis-input">
+                            <span class="input-title">策略选择</span>
+                            <select class="form-control input-value" id="strategy_input">
+                                <option value="Strategy_PE">strategy_PE</option>
+                                <option value="Strategy_VOL">strategy_VOL</option>
+                            </select>
+                        </div>
+                        <div class="analysis-input">
+                            <span class="input-title">基准大盘</span>
+                            <select class="form-control input-value" id="base_input">
+                                <option value="000001">上证综指</option>
+                                <option value="399001">深证成指</option>
+                            </select>
+                        </div>
+                        <div class="analysis-input">
+                            <span class="input-title">起始时间</span>
+                            <input type="text" class="form-control input-value" value="2016-04-01" id="beginDate_input">
+                        </div>
+                        <div class="analysis-input">
+                            <span class="input-title">调仓间隔</span>
+                            <input type="text" class="form-control input-value" value="5" id="interval_input">
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="analysis-input">
+                            <span class="input-title">起始资金</span>
+                            <select class="form-control input-value" id="capital_input">
+                                <option value="100000">10万</option>
+                                <option value="500000">50万</option>
+                                <option value="1000000">100万</option>
+                                <option value="2000000">200万</option>
+                                <option value="5000000">500万</option>
+                                <option value="10000000">1000万</option>
+                            </select>
+                        </div>
+                        <div class="analysis-input">
+                            <span class="input-title">交易费率</span>
+                            <input type="range" min="0" max="1" step="0.01" class="input-value"
+                                   style="float:left;width: 70%;height: 37px" id="taxRate_input">
+                            <div style="float: right;width: 10%;text-align: center;line-height: 30px" id="">0.5</div>
+                        </div>
+                        <div class="analysis-input">
+                            <span class="input-title">结束时间</span>
+                            <input type="text" class="form-control input-value" value="2016-06-30" id="endDate_input">
+                        </div>
+                        <div class="analysis-input">
+                            <span class="input-title">股票数量</span>
+                            <input type="text" class="form-control input-value" value="10" id="stockNum_input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:20px;height: 40px;float: right;width: 50%">
+                <button class="btn-primary btn" style="width: 100%;position: relative; right: 14px" id="beginTestBtn"> 开始回测</button>
+                <div>
+                    <h5 style="float: right;margin-right:14px;">或者使用<a href="/html/content/html/analysis_with_factor_input.html">高级回测</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4" id="right">
+        <h2>推荐策略</h2>
+        <p style="">我们为您筛选出两种典型的合适的策略，而您只需填写一些基本参数，我们将根据您的参数为您自动选择合适的股票来进行回测</p>
+    </div>
+</div>
+</body>
+<script src="/html/content/js/navigator.js"></script>
+<script src="/html/content/js/stock_input.js"></script>
+</html>

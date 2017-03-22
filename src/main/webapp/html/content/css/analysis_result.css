@@ -1,0 +1,20 @@
+#content{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+#params{
+    height: 470px;
+    margin-top:10px;
+}
+.param-item{
+    margin-top:10px;
+}
+
+.highlight{
+    background-color: #eeeeee;
+}
+
+#transaction_table tr{
+    cursor: pointer;
+}

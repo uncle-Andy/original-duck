@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>股票数据</title>
+
+    <!--Bootstrap from local-->
+    <script src="/html/content/bootstrap-local/jquery.min.js"></script>
+    <link rel="stylesheet" href="/html/content/bootstrap-local/bootstrap.css">
+    <script src="/html/content/bootstrap-local/bootstrap.js"></script>
+
+    <!--datatables-->
+    <script src="/html/content/plugin/datatables/jquery.dataTables.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">-->
+    <script src="/html/content/plugin/datatables/dataTables.bootstrap.js"></script>
+    <link rel="stylesheet" href="/html/content/plugin/datatables/dataTables.bootstrap.css">
+    <!--<link rel="stylesheet" href="/html/content/plugin/datatables/dataTables.select.js">-->
+
+
+    <!--self-->
+    <link rel="stylesheet" href="/html/content/css/navigator.css">
+    <link rel="stylesheet" href="/html/content/css/stock_list.css">
+</head>
+<body>
+
+<div id="main-content">
+    <div style="margin-top:20px;">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" id="data-tab">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">股票数据</a>
+            </li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">大盘数据</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div id="stock_container">
+                    <table id="stock_list" class="display table">
+                        <thead>
+                        <tr>
+                            <th>股票名称</th>
+                            <th>股票代码</th>
+                            <th>开盘价</th>
+                            <th>最高价</th>
+                            <th>最低价</th>
+                            <th>收盘价</th>
+                            <th>成交量</th>
+                            <th>涨跌幅</th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                        <tfoot>
+                        </tfoot>
+
+                    </table>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+                <div id="benchmark_container">
+                    <table id="benchmark_list" class="display table">
+                        <thead>
+                        <tr>
+                            <th>大盘名称</th>
+                            <th>大盘代码</th>
+                            <th>开盘价</th>
+                            <th>最高价</th>
+                            <th>最低价</th>
+                            <th>收盘价</th>
+                            <th>成交量</th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+<script src="/html/content/js/stock_list.js"></script>
+<script src="/html/content/js/navigator.js"></script>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高级回测</title>
+    <!--Bootstrap from local-->
+    <script src="/html/content/bootstrap-local/jquery.min.js"></script>
+    <link rel="stylesheet" href="/html/content/bootstrap-local/bootstrap.css">
+    <script src="/html/content/bootstrap-local/bootstrap.js"></script>
+    <!--hightstock-->
+    <script src="/html/content/plugin/highstock/highstock.js"></script>
+    <script src="/html/content/plugin/highstock/highcharts-more.js"></script>
+    <!--flatpickr-->
+    <script src="/html/content/plugin/flatpickr/flatpickr.js"></script>
+    <link rel="stylesheet" href="/html/content/plugin/flatpickr/flatpickr.css">
+    <!--datatables-->
+    <script src="/html/content/plugin/datatables/jquery.dataTables.js"></script>
+    <script src="/html/content/plugin/datatables/dataTables.bootstrap.js"></script>
+    <link rel="stylesheet" href="/html/content/plugin/datatables/dataTables.bootstrap.css">
+    <!--self-->
+    <link rel="stylesheet" href="/html/content/css/navigator.css">
+    <link rel="stylesheet" href="/html/content/css/analysis_with_factor_input.css">
+
+</head>
+<body>
+<div id="content">
+    <!--                                   _
+     _ __   __ _ _ __ __ _ _ __ ___       / |
+    | '_ \ / _` | '__/ _` | '_ ` _ \ _____| |
+    | |_) | (_| | | | (_| | | | | | |_____| |
+    | .__/ \__,_|_|  \__,_|_| |_| |_|     |_|
+    |_|
+    -->
+    <div id="params-1">
+        <h2>①配置基本信息</h2>
+        <div>
+            <div class="row" style="width: 670px">
+                <div class="col-xs-6">
+                    <div class="analysis-input">
+                        <span class="input-title">起始时间</span>
+                        <input type="text" class="form-control input-value" value="2016-04-01" id="beginDate_input">
+                    </div>
+                    <div class="analysis-input">
+                        <span class="input-title">基准大盘</span>
+                        <select class="form-control input-value" id="base_input">
+                            <option value="000001">上证综指</option>
+                            <option value="399001">深证成指</option>
+                        </select>
+                    </div>
+                    <div class="analysis-input">
+                        <span class="input-title">起始资金</span>
+                        <select class="form-control input-value" id="capital_input">
+                            <option value="100000">10万</option>
+                            <option value="500000">50万</option>
+                            <option value="1000000">100万</option>
+                            <option value="2000000">200万</option>
+                            <option value="5000000">500万</option>
+                            <option value="10000000">1000万</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="analysis-input">
+                        <span class="input-title">结束时间</span>
+                        <input type="text" class="form-control input-value" id="endDate_input" value="2016-06-01">
+                    </div>
+                    <div class="analysis-input">
+                        <span class="input-title">调仓间隔</span>
+                        <input type="text" class="form-control input-value" id="interval_input" value="5">
+                    </div>
+                    <div class="analysis-input">
+                        <span class="input-title">交易费率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="taxRate_input">
+                        <div id="taxRate-value-in-time"
+                             style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+                                          ____
+     _ __   __ _ _ __ __ _ _ __ ___      |___ \
+    | '_ \ / _` | '__/ _` | '_ ` _ \ _____ __) |
+    | |_) | (_| | | | (_| | | | | | |_____/ __/
+    | .__/ \__,_|_|  \__,_|_| |_| |_|    |_____|
+    |_|
+
+    -->
+    <div id="params-2">
+        <h2>②配置股票池</h2>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="panel-default panel">
+                    <div class="panel-heading">所有股票</div>
+                    <div class="panel-body">
+                        <table id="allstock_list" class="display table">
+                            <thead>
+                            <tr>
+                                <th>股票名称</th>
+                                <th>股票代码</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-6">
+                <div class="panel-default panel">
+                    <div class="panel-heading">选中的股票</div>
+                    <div class="panel-body">
+                        <table id="chosenStocks" class="display table">
+                            <thead>
+                            <tr>
+                                <th>股票名称</th>
+                                <th>股票代码</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+
+                            <tfoot>
+                            </tfoot>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--
+                                      _____
+ _ __   __ _ _ __ __ _ _ __ ___      |___ /
+| '_ \ / _` | '__/ _` | '_ ` _ \ _____ |_ \
+| |_) | (_| | | | (_| | | | | | |_____|__) |
+| .__/ \__,_|_|  \__,_|_| |_| |_|    |____/
+|_|
+    -->
+    <div id="params-3">
+        <h2>③配置权重</h2>
+        <div class="row">
+            <div class="col-xs-5">
+
+                <div id="weight">
+                    <div class="slider-input">
+                        <span class="input-title">市盈率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="pe-slider" name="PE">
+                        <div id="pe-slider-in-time"
+                             style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">市净率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="pb-slider" name="PB">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">市销率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="ps-slider" name="PS">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">市现率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="pcf-slider" name="PCF">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">5日换手率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="vol5-slider" name="VOL5">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">10日换手率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="vol10-slider" name="VOL10">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">60日换手率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="vol60-slider" name="VOL60">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">120日换手率</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="vol120-slider" name="VOL120">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-7">
+                <div id="weight-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+                                       _  _
+ _ __   __ _ _ __ __ _ _ __ ___       | || |
+| '_ \ / _` | '__/ _` | '_ ` _ \ _____| || |_
+| |_) | (_| | | | (_| | | | | | |_____|__   _|
+| .__/ \__,_|_|  \__,_|_| |_| |_|        |_|
+|_|
+
+    -->
+    <div id="params-4">
+        <h2>④配置仓位</h2>
+        <div class="row">
+            <div class="col-xs-5">
+
+                <div id="space">
+                    <div class="slider-input">
+                        <span class="input-title">1档位</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="sp1-slider">
+                        <div id=""
+                             style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">2档位</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="sp2-slider">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">3档位</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="sp3-slider">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">4档位</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="sp4-slider">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+                    <div class="slider-input">
+                        <span class="input-title">5档位</span>
+                        <input type="range" min="0" max="1" step="0.01" class="input-value"
+                               style="float:left;width: 70%;height: 100%" id="sp5-slider">
+                        <div
+                                style="width: 10%;text-align: center;line-height: 35px;float: right;">0.5
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-xs-7">
+                <div id="space-chart"></div>
+            </div>
+        </div>
+    </div>
+    <button class="btn-primary btn btn-lg" id="testBtn">开始回测</button>
+</div>
+</body>
+<script src="/html/content/js/navigator.js"></script>
+<script src="/html/content/js/analysis_with_factor_input.js"></script>
+</html>

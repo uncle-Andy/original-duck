@@ -1,0 +1,66 @@
+body, html{
+    height: 100%;
+}
+body, #content{
+    background-color: #F7FAFC;
+}
+#content{
+    width: 400px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+#login-module{
+    height: 400px;
+    box-shadow: 0 0 4px 1px rgba(170, 170, 170, 0.52);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#switcher{
+    height: 40px;
+}
+
+.switch-tab{
+    width: 50%;
+    height: 100%;
+    float: left;
+    transition: .5s;
+}
+.switch-tab:hover{
+    transition: .5s;
+    background-color: #e2e5e7;
+}
+
+.switch-tab > a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    height: 100%;
+    color: #747c7f;
+    line-height: 35px;
+    font-size: 15px;
+}
+
+.tab-content{
+    top:5px;
+}
+
+#logo-container{
+    height: 100px;
+}
+#logo{
+    margin:0 auto;
+    height: 100px;
+    width: 230px;
+}
+.logo-font{
+    float: left;
+    font-size: 50px;
+}
+
+.input-container{
+    width: 70%;
+    margin: 0 auto;
+}
