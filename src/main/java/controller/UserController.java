@@ -42,6 +42,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
     public boolean login(HttpServletRequest request, String username, String password, String addNewUser) {
         UserEntity userEntity = new UserEntity();
 

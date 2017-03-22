@@ -1,0 +1,15 @@
+body{
+    min-width: 1100px;
+}
+#content{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.highlight{
+    background-color: #eeeeee;
+}
+
+#optional_list{
+    cursor: pointer;
+}

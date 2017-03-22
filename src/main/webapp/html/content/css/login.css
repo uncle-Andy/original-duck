@@ -4,6 +4,12 @@ body, html{
 body, #content{
     background-color: #F7FAFC;
 }
+body input {
+    padding: 10px;
+}
+body input:focus{
+    outline: none;
+}
 #content{
     width: 400px;
     margin: 0 auto;

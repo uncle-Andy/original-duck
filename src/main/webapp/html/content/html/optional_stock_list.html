@@ -3,8 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>自选股</title>
+    <!--Bootstrap from local-->
+    <script src="/html/content/bootstrap-local/jquery.min.js"></script>
+    <link rel="stylesheet" href="/html/content/bootstrap-local/bootstrap.css">
+    <script src="/html/content/bootstrap-local/bootstrap.js"></script>
+    <!--hightstock-->
+    <script src="/html/content/plugin/highstock/highstock.js"></script>
+    <!--<script src="/html/content/plugin/highstock/highcharts-more.js"></script>-->
+
+    <!--datatables-->
+    <script src="/html/content/plugin/datatables/jquery.dataTables.js"></script>
+    <script src="/html/content/plugin/datatables/dataTables.bootstrap.js"></script>
+    <link rel="stylesheet" href="/html/content/plugin/datatables/dataTables.bootstrap.css">
+    <!--self-->
+    <link rel="stylesheet" href="/html/content/css/optional_stock_list.css">
+    <link rel="stylesheet" href="/html/content/css/navigator.css">
 </head>
 <body>
+<div id="content">
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#optional" aria-controls="home" role="tab"
+                                                      data-toggle="tab">自选股列表</a></li>
+            <li role="presentation"><a href="#distribution" aria-controls="profile" role="tab"
+                                       data-toggle="tab">自选股分布</a></li>
+        </ul>
 
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="fade in tab-pane active" id="optional">
+                <table id="optional_list" class="display table">
+                    <thead>
+                    <tr>
+                        <th>股票名称</th>
+                        <th>股票代码</th>
+                        <th>开盘价</th>
+                        <th>最高价</th>
+                        <th>最低价</th>
+                        <th>收盘价</th>
+                        <th>成交量</th>
+                        <th>涨跌幅</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    </tbody>
+
+                    <tfoot>
+                    </tfoot>
+
+                </table>
+            </div>
+            <div role="tabpanel" class="tab-pane fade " id="distribution">...</div>
+        </div>
+
+    </div>
+</div>
 </body>
+<script src="/html/content/js/navigator.js"></script>
+<script src="/html/content/js/optional_stock_list.js"></script>
 </html>
