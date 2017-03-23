@@ -31,11 +31,12 @@
             </li>
             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">大盘数据</a>
             </li>
+            <li role="presentation"><a href="#hot_stock" aria-controls="profile" role="tab" data-toggle="tab">热门股票</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">
+            <div role="tabpanel" class="tab-pane fade active in" id="home">
                 <div id="stock_container">
                     <table id="stock_list" class="display table">
                         <thead>
@@ -60,7 +61,7 @@
                     </table>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="profile">
+            <div role="tabpanel" class="tab-pane fade" id="profile">
                 <div id="benchmark_container">
                     <table id="benchmark_list" class="display table">
                         <thead>
@@ -80,6 +81,31 @@
 
                         <tfoot>
                         </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="hot_stock">
+                <div id="hot_container">
+                    <table id="hot_stock_list" class="display table">
+                        <thead>
+                        <tr>
+                            <th>股票名称</th>
+                            <th>股票代码</th>
+                            <th>开盘价</th>
+                            <th>最高价</th>
+                            <th>最低价</th>
+                            <th>收盘价</th>
+                            <th>成交量</th>
+                            <th>涨跌幅</th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                        <tfoot>
+                        </tfoot>
+
                     </table>
                 </div>
             </div>
