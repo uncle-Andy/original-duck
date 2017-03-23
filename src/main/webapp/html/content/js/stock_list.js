@@ -2,6 +2,24 @@
  * Created by duanzhengmou on 3/18/17.
  * Copyright © 2017 duanzhengmou. All rights reserved.
  */
+
+var olanguage = {
+    "sLengthMenu": "每页显示 _MENU_ 条记录",
+    "sZeroRecords": "对不起，查询不到任何相关数据",
+    "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+    "sInfoEmtpy": "找不到相关数据",
+    "sInfoFiltered": "数据表中共为 _MAX_ 条记录)",
+    "sProcessing": "正在加载中...",
+    "sSearch": "搜索",
+    "sUrl": "", //多语言配置文件，可将oLanguage的设置放在一个txt文件中，例：Javascript/datatable/dtCH.txt
+    "oPaginate": {
+        "sFirst":    "第一页",
+        "sPrevious": " 上一页 ",
+        "sNext":     " 下一页 ",
+        "sLast":     " 最后一页 "
+    }
+}//多语言配置
+
 init();
 
 function init() {
@@ -66,7 +84,8 @@ function initPlugin() {
         }],
 //            "bProcessing":true,
 //            "iDisplayLength" : 40,
-        "autoWidth": false
+        "autoWidth": false,
+        "oLanguage": olanguage
     });
 
     let bench_table = $('#benchmark_list').DataTable({
@@ -83,8 +102,9 @@ function initPlugin() {
             {data: 'close'},
             {data: 'turnoverVol'}
         ],
-
+        dom: 'ftip',
         "autoWidth": false,
+        "oLanguage": olanguage
     });
 
     let hot_stock_table = $('#hot_stock_list').DataTable({
@@ -117,7 +137,8 @@ function initPlugin() {
         }],
 //            "bProcessing":true,
 //            "iDisplayLength" : 40,
-        "autoWidth": false
+        "autoWidth": false,
+        "oLanguage": olanguage
     });
 }
 
@@ -193,3 +214,4 @@ function initData() {
             $( table.rows().nodes() ).removeClass( 'highlight' );
         } );
 }
+
