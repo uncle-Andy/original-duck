@@ -3,6 +3,23 @@
  * Copyright © 2017 duanzhengmou. All rights reserved.
  */
 
+var olanguage = {
+    "sLengthMenu": "每页显示 _MENU_ 条记录",
+    "sZeroRecords": "对不起，查询不到任何相关数据",
+    "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+    "sInfoEmtpy": "找不到相关数据",
+    "sInfoFiltered": "数据表中共为 _MAX_ 条记录)",
+    "sProcessing": "正在加载中...",
+    "sSearch": "搜索",
+    "sUrl": "", //多语言配置文件，可将oLanguage的设置放在一个txt文件中，例：Javascript/datatable/dtCH.txt
+    "oPaginate": {
+        "sFirst":    "第一页",
+        "sPrevious": " 上一页 ",
+        "sNext":     " 下一页 ",
+        "sLast":     " 最后一页 "
+    }
+}//多语言配置
+
 let taxRateValue = $('#taxRate-value-in-time');
 var weight_chart;
 var space_chart;
@@ -113,7 +130,8 @@ function initPlugin() {
             // {data:'high'},
             // {data:'low'},
             // {data:'close'}
-        ]
+        ],
+        oLanguage: olanguage
     });
     // 股票池的鼠标高亮和点击事件
     $('#chosenStocks tbody').on('click', 'tr', function () {
@@ -227,7 +245,8 @@ function initAllStockTable(data) {
             // {data:'high'},
             // {data:'low'},
             // {data:'close'}
-        ]
+        ],
+        oLanguage: olanguage
     });
     $('#allstock_list tbody').on('click', 'tr', function () {
         table.$('tr.selected').removeClass('selected');

@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="content" class="row">
-    <div id="left" class="col-xs-8">
+    <div id="left" class="col-xs-7">
         <div class="">
             <div class="panel-body">
                 <!--输入框们-->
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div style="margin-top:20px;height: 40px;float: right;width: 50%">
-                <button class="btn-primary btn" style="width: 100%;position: relative; right: 14px" id="beginTestBtn"> 开始回测</button>
+                <button class="btn-primary btn" style="width: 73%;position: relative; right: -74px" id="beginTestBtn"> 开始回测</button>
                 <div>
                     <h5 style="float: right;margin-right:14px;">或者使用<a href="/html/content/html/analysis_with_factor_input.html">高级回测</a></h5>
                 </div>
@@ -84,7 +84,29 @@
     </div>
     <div class="col-xs-4" id="right">
         <h2>推荐策略</h2>
-        <p style="">我们为您筛选出两种典型的合适的策略，而您只需填写一些基本参数，我们将根据您的参数为您自动选择合适的股票来进行回测</p>
+        <p style="">&nbsp&nbsp&nbsp&nbsp我们为您筛选出两种典型的合适的策略，而您只需填写一些基本参数，我们将根据您的参数为您自动选择合适的股票来进行回测</p>
+        <hr />
+        <div style="margin-top: 35px">
+            <div id="s_pe" class="fade in">
+                <h3>strategy_PE<b style="font-size: 16px">&nbsp&nbsp(n日利润收益率最佳策略)</b></h3>
+                <p>
+                    &nbsp&nbsp&nbsp&nbsp这个策略的买入逻辑是： 1、买入市场上前20个交易日pe在一定区间的n支股票。 2、每个月满仓轮换。
+                    <br/>
+                    &nbsp&nbsp&nbsp&nbsp购入股息/股市价格比率合适的股票,寻求最大可能低价买入、高价卖出的股票与时机,以获得最大的差价收益,
+                    在投机性甚强的不成熟的市场中，这一收益十分可观,但风险也较大。
+                </p>
+            </div>
+            <div id="s_vol" class="fade" style="margin-top: -176px">
+                <h3>strategy_VOL<b style="font-size: 16px">&nbsp&nbsp(n日平均成交额最小策略)</b></h3>
+                <p>
+                    &nbsp&nbsp&nbsp&nbsp这个策略的买入逻辑是： 1、买入市场上前n个交易日成交额最小的n支股票。 2、每个月满仓轮换。
+                    <br/>
+                    &nbsp&nbsp&nbsp&nbsp某股票成交量小，表明这个股票无人关注，所以它的价格也是比较低的，买入后，放上一段时间，有一定概率上涨。
+                    该策略风险较低,在各种策略的最小收益中，选择具有最大收益的策略。其代价是放弃最优策略。
+                </p>
+            </div>
+        </div>
+
     </div>
 </div>
 </body>

@@ -2,7 +2,7 @@ body{
     min-width: 1100px;
 }
 #content{
-    width: 1100px;
+    width: 1200px;
     margin: 0 auto;
     margin-top: 100px;
 }
@@ -24,4 +24,11 @@ body{
 
 #beginDate_input, #endDate_input{
     cursor: pointer;
+}
+
+#right{
+    margin-left: 80px;
+}
+#left{
+    margin-left: 20px;
 }

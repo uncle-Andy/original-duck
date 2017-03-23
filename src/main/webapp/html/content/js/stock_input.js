@@ -40,3 +40,15 @@ function initPlugin() {
     $('#beginDate_input').flatpickr();
     $('#endDate_input').flatpickr();
 }
+
+$("#strategy_input").change(function () {
+    var strategy = $('#strategy_input').val();
+    if(strategy == "Strategy_PE"){
+        $("#s_pe").addClass("in");
+        $("#s_vol").removeClass("in");
+
+    }else{
+        $("#s_vol").addClass("in");
+        $("#s_pe").removeClass("in");
+    }
+})
