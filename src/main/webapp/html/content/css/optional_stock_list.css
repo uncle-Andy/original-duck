@@ -13,3 +13,6 @@ body{
 #optional_list{
     cursor: pointer;
 }
+.tab-content{
+    margin-top: 10px;
+}
