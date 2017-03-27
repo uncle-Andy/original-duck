@@ -91,8 +91,10 @@ public class UserController {
     }
 
     @RequestMapping("/logout")
-    public void logout(HttpServletRequest request) {
+    @ResponseBody
+    public boolean logout(HttpServletRequest request) {
         request.getSession().setAttribute(Configure.USERID_KEY, null);
+        return true;
     }
 
     @RequestMapping("/getAllReports")

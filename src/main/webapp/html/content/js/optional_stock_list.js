@@ -242,3 +242,17 @@ function initPlugin() {
     });
 
 }
+
+function logout() {
+    $.ajax({
+        url:'/user/logout',
+        type:'post',
+        success: function(data){
+            location.href ='/html/content/html/stock_list.html';
+        },
+        error: function(data){
+            alert("ERROR");
+        }
+        
+    });
+}

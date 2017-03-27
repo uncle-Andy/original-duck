@@ -35,4 +35,13 @@
     <mvc:default-servlet-handler />
 
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/html/content/html/optional_stock_list.html"/>
+            <bean class="Intercepters.AuthInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+
 </beans>
