@@ -131,4 +131,114 @@ function initPlugin() {
         .on('mouseleave', 'td', function () {
             $(optional_list.rows().nodes()).removeClass('highlight');
         });
+
+    // init region distribution
+    $.ajax({
+        url:'/Optional/getRegionDistribution',
+        type:'post',
+        success: function(data){
+            let region_data = [];
+            for (let x in data){
+                region_data.push({
+                    name: x==""?"未知":x,
+                    y:data[x]
+                })
+            }
+            console.log(region_data);
+            // Build the region-dis-chart
+            let region_chart = Highcharts.chart('region-dis-chart', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: '自选股地域分布示意图'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}:{point.y}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: '数量',
+                    colorByPoint: true,
+                    data: region_data
+                }]
+            });
+            $('.distribution-charts').on('click', function () {
+                setTimeout(function () {
+                    region_chart.reflow();
+                },300);
+            });
+        },
+        error: function(data){
+            alert("ERROR");
+        }
+    });
+
+    // init board distribution
+    $.ajax({
+        url:'/Optional/getBoardDistribution',
+        type:'post',
+        success: function(data){
+            let board_data = [];
+            for (let x in data){
+                board_data.push({
+                    name: x==""?"未知板块":x,
+                    y:data[x]
+                })
+            }
+            // Build the board-dis-chart
+            let board_chart = Highcharts.chart('board-dis-chart', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: '自选股行业分布示意图'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}:{point.y}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: '数量',
+                    colorByPoint: true,
+                    data: board_data
+                }]
+            });
+            $('.distribution-charts').on('click', function () {
+                setTimeout(function () {
+                    board_chart.reflow();
+                    console.log('reflow');
+                },300);
+            });
+        },
+        error: function(data){
+            alert("ERROR");
+        }
+
+    });
+
 }

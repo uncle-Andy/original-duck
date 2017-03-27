@@ -26,7 +26,7 @@
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#optional" aria-controls="home" role="tab"
                                                       data-toggle="tab">自选股列表</a></li>
-            <li role="presentation"><a href="#distribution" aria-controls="profile" role="tab"
+            <li role="presentation" class="distribution-charts"><a href="#distribution" aria-controls="profile" role="tab"
                                        data-toggle="tab">自选股分布</a></li>
         </ul>
 
@@ -56,7 +56,26 @@
 
                 </table>
             </div>
-            <div role="tabpanel" class="tab-pane fade " id="distribution">...</div>
+            <div role="tabpanel" class="tab-pane fade " id="distribution">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">地域分布</div>
+                            <div class="panel-body">
+                                <div id="region-dis-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">行业分布</div>
+                            <div class="panel-body">
+                                <div id="board-dis-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

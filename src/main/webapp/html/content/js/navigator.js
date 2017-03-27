@@ -12,8 +12,7 @@ $("body").prepend("<nav style='width: 100%;height: 45px;background-color: #26262
     "<li style='float:left;height: 45px;'><a href='/html/content/html/stock_list.html' class='nav-link'>数据</li></a>" +
     "<li style='float:left;height: 45px;'><a href='/html/content/html/optional_stock_list.html' class='nav-link'>自选</li></a></li>" +
     "<li style='float:left;height: 45px;'><a href='/html/content/html/analysis_input.html' class='nav-link'>回测</li></a></li>" +
-    "<li style='float:left;height: 45px;'><a href='/html/content/html/login.html' class='nav-link'>用户</li></a></li>" +
-    "</ul>" +
+    "<li style='float:left;height: 45px;'><a href='/html/content/html/login.html' class='nav-link' id='user'>用户</li></a></li>" +
     "</nav>");
 
 // $.ajax({
