@@ -31,7 +31,10 @@
         <div class="col-xs-3">
             <!--basic info-->
             <div class="panel panel-default" style="height: 50%;margin-top:10px;">
-                <div class="panel-heading">基本信息</div>
+                <div class="panel-heading">
+                    基本信息
+                    <button class="btn btn-primary btn-xs" id="addOptionalBtn" style="float: right;">添加到自选股</button>
+                </div>
                 <div class="panel-body">
                     <div>
                         <strong>股票名称</strong><span class="basic-info-value" id="stock-name">东风汽车</span>
@@ -40,7 +43,8 @@
                         <strong>股票代码</strong><span class="basic-info-value" id="stock-code">sh600006</span>
                     </div>
                     <div>
-                        <strong>昨日收盘价</strong><span class="basic-info-value" style="color: #bb1315" id="stock-open-price">7.3</span>
+                        <strong>昨日收盘价</strong><span class="basic-info-value" style="color: #bb1315"
+                                                    id="stock-open-price">7.3</span>
                     </div>
                     <div>
                         <strong>变化率</strong><span class="basic-info-value" style="color: #bb1315" id="stock-changerate">0.82%</span>
@@ -58,7 +62,8 @@
                 <!--<div class="panel-heading">Panel heading without title</div>-->
                 <div class="panel-body" id="dash-btns">
                     <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="active"><a href="#k-line" role="tab" data-toggle="tab">k-线图</a></li>
+                        <li role="presentation" class="active"><a href="#k-line" role="tab" data-toggle="tab">k-线图</a>
+                        </li>
                         <li role="presentation"><a href="#factor" role="tab" data-toggle="tab">因子走势</a></li>
                         <li role="presentation"><a href="#judgement" role="tab" data-toggle="tab">股票评估</a></li>
                         <li role="presentation"><a href="#news" role="tab" data-toggle="tab">相关新闻</a></li>
@@ -71,21 +76,24 @@
                 <div class="panel-heading" style="">详情
 
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="position: relative;min-height: 473px">
                     <div>
                         <!-- Nav tabs -->
                         <!--<ul class="nav nav-tabs" role="tablist">-->
-                            <!--<li role="presentation" class="active"><a href="#k-line" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>-->
-                            <!--<li role="presentation"><a href="#factor" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>-->
-                            <!--<li role="presentation"><a href="#judgement" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>-->
-                            <!--<li role="presentation"><a href="#news" aria-controls="messages" role="tab" data-toggle="tab">News</a></li>-->
+                        <!--<li role="presentation" class="active"><a href="#k-line" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>-->
+                        <!--<li role="presentation"><a href="#factor" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>-->
+                        <!--<li role="presentation"><a href="#judgement" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>-->
+                        <!--<li role="presentation"><a href="#news" aria-controls="messages" role="tab" data-toggle="tab">News</a></li>-->
                         <!--</ul>-->
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="k-line"><div id="ohlc-chart"></div></div>
+                            <div role="tabpanel" class="tab-pane active" id="k-line">
+                                <div id="ohlc-chart"></div>
+                            </div>
                             <div role="tabpanel" class="tab-pane" id="factor">
-                                <select name="" id="factor-trend-type" class="form-control" style="width: 300px;float: right;">
+                                <select name="" id="factor-trend-type" class="form-control"
+                                        style="width: 300px;float: right;">
                                     <option value="市盈率">市盈率</option>
                                     <option value="市净率">市净率</option>
                                     <option value="市销率">市销率</option>
@@ -99,14 +107,25 @@
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <div id="evaluation-chart"></div>
-                                        <div><strong>购买建议</strong><span id="suggestion" style="float: right;">建议买入</span></div>
-                                        <div><strong>分析</strong><span id="analysis" style="float: right;">分析</span></div>
+                                        <div><strong>购买建议</strong><span id="suggestion"
+                                                                        style="float: right;">建议买入</span></div>
+                                        <div><strong>分析</strong><span id="analysis" style="float: right;">分析</span>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-6"><div id="radar_chart"></div></div>
-                                </div></div>
+                                    <div class="col-xs-6">
+                                        <div id="radar_chart"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div role="tabpanel" class="tab-pane" id="news" style="max-height: 600px;overflow: scroll">
-
-
+                                <div id="news_mask" style="position: absolute;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.38);left: 0;top: 0;">
+                                    <div style="height: 100px;width:100px;margin: 0 auto;position: relative;top: 50%;transform: translateY(-50%)">
+                                        <div class="square-spin" style="width: 50px;margin: 0 auto;">
+                                            <div></div>
+                                        </div>
+                                        <p style="text-align: center;color: #e2e5e7;margin-top: 10px">新闻加载中..</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

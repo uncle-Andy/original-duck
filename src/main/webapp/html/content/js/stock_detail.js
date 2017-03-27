@@ -15,12 +15,35 @@ function init() {
 function initEvent() {
     $('#factor-trend-type').on('change', function () {
         draw_factor_chart(code, $(this).val());
-    })
+    });
+    
 }
 function initPlugin() {
 
 }
 function initData() {
+    // init add optional btn event
+    $.ajax({
+        url:'/Optional/check',
+        type:'get',
+        data:{code: code},
+        success: function(data){
+            if(data){
+                // this code already exist
+                $('#addOptionalBtn').on('click', function () {
+                    
+                });
+            }else{
+                
+            }
+        },
+        error: function(data){
+            alert("ERROR");
+        }
+        
+    });
+    
+    
     // init basic info of stock
 
     let request_url = '/StockDetail/description/?code=' + code;
@@ -319,6 +342,7 @@ function initData() {
                     '<p>'+data[x].summary+'</p>' +
                     '</div>');
             }
+            $('#news_mask').css('visibility','hidden');
         },
         error: function(data){
             alert("ERROR");
@@ -378,6 +402,80 @@ function draw_factor_chart(code,factor) {
                     factor_chart.reflow();
                 },0);
             });
+        },
+        error: function(data){
+            alert("ERROR");
+        }
+
+    });
+}
+
+
+new Promise((resolve, reject)=>{
+    $.ajax({
+        url:'/Optional/check',
+        type:'get',
+        data:{code: code},
+        success: function(data){
+            if (data){
+                resolve();
+            }else {
+                reject();
+            }
+        },
+        error: function(data){
+            alert("ERROR");
+        }
+    });
+}).then(()=>{
+    // optional stock already exist
+    $('#addOptionalBtn')
+        .text('删除自选股')
+        .addClass('btn-danger')
+        .removeClass('btn-primary')
+        .on('click', ()=>{
+        deleteOptional(code);
+    });
+}).catch(()=>{
+    $('#addOptionalBtn')
+        .on('click', ()=>{
+            addOptional(code);
+        });
+});
+
+function addOptional(code) {
+    $.ajax({
+        url:'/Optional/add',
+        type:'post',
+        data:{code: code},
+        success: function(data){
+            $('#addOptionalBtn')
+                .text('删除自选股')
+                .addClass('btn-danger')
+                .removeClass('btn-primary')
+                .on('click', ()=>{
+                    deleteOptional(code);
+                });
+        },
+        error: function(data){
+            alert("ERROR");
+        }
+
+    });
+}
+function deleteOptional(code) {
+    $.ajax({
+        url:'/Optional/del',
+        type:'post',
+        data:{code: code},
+        success: function(data){
+            $('#addOptionalBtn')
+                .text('添加到自选股')
+                .addClass('btn-primary')
+                .removeClass('btn-danger')
+                .on('click', ()=>{
+                    addOptional(code);
+                });
         },
         error: function(data){
             alert("ERROR");
