@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+        System.out.println("interceptor handling");
         String userName = (String)httpServletRequest.getSession().getAttribute(Configure.USERID_KEY);
         if (userName == null){
             System.out.println("Off line");

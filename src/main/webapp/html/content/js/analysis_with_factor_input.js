@@ -61,6 +61,18 @@ function initEvent() {
         let interval = $('#interval_input').val();
         let taxRate = $('#taxRate_input').val();
         let codes = _getChosenCodes();
+        if(codes.length<6){
+            console.log("less codes");
+
+            $('#testBtn')
+                .tooltip({
+                    trigger: 'manual'
+                })
+                .attr('data-original-title', '股票池最少包含6支股票,您只选了'+codes.length+'只')
+                .tooltip('show');
+            setTimeout(()=>{$('#testBtn').tooltip('destroy');}, 5000);
+            return;
+        }
         let factorWeight = {};
         $('#params-3 input').map(function () {
             let cur = $(this);

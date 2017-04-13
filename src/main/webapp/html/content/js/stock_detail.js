@@ -24,17 +24,15 @@ function initPlugin() {
 function initData() {
     // init add optional btn event
     $.ajax({
-        url:'/Optional/check',
+        url:'/user/checkIfLogin',
         type:'get',
-        data:{code: code},
         success: function(data){
             if(data){
-                // this code already exist
-                $('#addOptionalBtn').on('click', function () {
-                    
-                });
+                // this user already login
             }else{
-                
+                $('#addOptionalBtn').on('click', function () {
+                    location.href = 'http://localhost:8080/html/content/html/login.html';
+                });
             }
         },
         error: function(data){
@@ -258,7 +256,7 @@ function initData() {
         type:'get',
         data:{
             code: code,
-            timeLen: 30
+            timeLen: 120
         },
         success: function(data){
             let result = [];
@@ -363,7 +361,7 @@ function draw_factor_chart(code,factor) {
         data:{
             code: code,
             factor: factor,
-            offset: 30
+            offset: 120
         },
         success: function(data){
             let result;
@@ -453,6 +451,7 @@ function addOptional(code) {
                 .text('删除自选股')
                 .addClass('btn-danger')
                 .removeClass('btn-primary')
+                .off()
                 .on('click', ()=>{
                     deleteOptional(code);
                 });
@@ -473,6 +472,7 @@ function deleteOptional(code) {
                 .text('添加到自选股')
                 .addClass('btn-primary')
                 .removeClass('btn-danger')
+                .off()
                 .on('click', ()=>{
                     addOptional(code);
                 });
