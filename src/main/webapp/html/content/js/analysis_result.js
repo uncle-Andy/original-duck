@@ -56,7 +56,7 @@ function initData() {
                 renderResult(data);
             },
             error: function (data) {
-                alert("ERROR");
+                //alert("ERROR");
             }
 
         });
@@ -76,7 +76,7 @@ function initData() {
                 renderResult(data);
             },
             error: function (data) {
-                alert("ERROR");
+                //alert("ERROR");
             }
 
         });
@@ -164,14 +164,14 @@ function initPlugin() {
         $(this).addClass('selected');
         let selected_row = transaction_table.row('.selected').index();
         let detail_data = trasaction_data_all.tradeDataVOList[selected_row].tradeDetailVOs;
-        // alert(detail_data[0].code);
+        // //alert(detail_data[0].code);
         // let current_detail_data = all_detail_data[selected_row]
         let detail_data_item;
         let detail_table_data = [];
         for (let i = 0; i < detail_data.length; i++) {
             detail_data_item = {};
             let date_data = trasaction_data_all.tradeDataVOList[selected_row].tradeDate;
-            // alert(date_data.year);
+            // //alert(date_data.year);
             detail_data_item.date = date_data.year + "-" + date_data.month + "-" + date_data.day;
             detail_data_item.name = detail_data[i].codeName;
             if (detail_data[i].buyOrSell == false) {

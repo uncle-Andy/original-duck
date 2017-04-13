@@ -169,7 +169,7 @@ function initData() {
 
         },
         error: function () {
-            alert("请求失败");
+            //alert("请求失败");
         }
     });
 
@@ -182,7 +182,7 @@ function initData() {
             $('#benchmark_list').DataTable().rows.add(data).draw(false);
         },
         error: function () {
-            alert("请求失败");
+            //alert("请求失败");
         }
     });
 

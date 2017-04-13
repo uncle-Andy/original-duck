@@ -68,7 +68,7 @@ function initEvent() {
                 .tooltip({
                     trigger: 'manual'
                 })
-                .attr('data-original-title', '股票池最少包含6支股票,您只选了'+codes.length+'只')
+                .attr('data-original-title', '在步骤【②配置股票池】中，\n股票池最少包含6支股票,您只选了'+codes.length+'只')
                 .tooltip('show');
             setTimeout(()=>{$('#testBtn').tooltip('destroy');}, 5000);
             return;
@@ -117,7 +117,7 @@ function initData() {
             initAllStockTable(data);
         },
         error: function (data) {
-            alert("ERROR");
+            //alert("ERROR");
         }
 
     });

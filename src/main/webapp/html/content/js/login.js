@@ -32,7 +32,7 @@ function initEvent() {
                 }
             },
             error: function(data){
-                alert("ERROR");
+                //alert("ERROR");
             }
             
         });
@@ -68,7 +68,7 @@ function initEvent() {
                 }
             },
             error: function(data){
-                alert("ERROR");
+                //alert("ERROR");
             }
             
         });

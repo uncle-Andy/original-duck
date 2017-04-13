@@ -36,7 +36,7 @@ function initData() {
             $('#optional_list').DataTable().rows.add(data).draw();
         },
         error: function () {
-            alert("请求失败");
+            //alert("请求失败");
         }
     });
 }
@@ -59,7 +59,7 @@ function initEvent() {
                     }
                 },
                 error: function(data){
-                    alert("ERROR");
+                    //alert("ERROR");
                 }
                 
             });
@@ -182,7 +182,7 @@ function initPlugin() {
             });
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
     });
 
@@ -236,7 +236,7 @@ function initPlugin() {
             });
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
 
     });
@@ -251,7 +251,7 @@ function logout() {
             location.href ='/html/content/html/stock_list.html';
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
         
     });

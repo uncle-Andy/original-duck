@@ -26,7 +26,7 @@ $("body").prepend("<nav style='width: 100%;height: 45px;background-color: #26262
 //       }
 //     },
 //     error: function(data){
-//         alert("ERROR");
+//         //alert("ERROR");
 //     }
 //
 // });

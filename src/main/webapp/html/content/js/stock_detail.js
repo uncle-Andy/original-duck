@@ -36,7 +36,7 @@ function initData() {
             }
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
         
     });
@@ -57,7 +57,7 @@ function initData() {
             $('#stock-total-share').text(data.totalShares)
         },
         error: function (data) {
-            alert("ERROR");
+            //alert("ERROR");
         }
     });
 
@@ -170,7 +170,7 @@ function initData() {
 
         },
         error: function (data) {
-            alert("ERROR");
+            //alert("ERROR");
         }
 
     });
@@ -245,7 +245,7 @@ function initData() {
 
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
     });
 
@@ -319,7 +319,7 @@ function initData() {
             });
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
         
     });
@@ -343,7 +343,7 @@ function initData() {
             $('#news_mask').css('visibility','hidden');
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
 
     });
@@ -402,7 +402,7 @@ function draw_factor_chart(code,factor) {
             });
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
 
     });
@@ -422,7 +422,7 @@ new Promise((resolve, reject)=>{
             }
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
     });
 }).then(()=>{
@@ -457,7 +457,7 @@ function addOptional(code) {
                 });
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
 
     });
@@ -478,7 +478,7 @@ function deleteOptional(code) {
                 });
         },
         error: function(data){
-            alert("ERROR");
+            //alert("ERROR");
         }
 
     });
